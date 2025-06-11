@@ -1,0 +1,42 @@
+pipeline {
+    agent {
+        label 'dev'
+    }
+
+    stages {
+
+        stage('hostname'){
+            steps{
+                sh 'hostname'
+            }
+        }
+
+
+
+        stage('userinfo') {
+            steps {
+                sh 'uname -a'
+            }
+        }
+
+        stage('Os details') {
+            steps {
+                sh 'cat /etc/os-release'
+            }
+        }
+
+        stage('Disc details'){
+            steps{
+                sh 'df -kh'
+            }
+        }
+
+        stage('cpu details'){
+            steps{
+                sh  'lscpu'
+            }
+        }
+
+    }
+}
+
